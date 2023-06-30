@@ -1,0 +1,23 @@
+<?php
+
+    // integrasi file koneksi database
+    include('koneksi.php');
+
+    // membuat perintah sql
+    $sql = "SELECT * FROM kelas";
+    $hasil = $koneksi->query($sql);
+
+    $jumlah_rows =$hasil->num_rows;
+
+    if($jumlah_rows > 0){
+
+        while($row =$hasil->fetch_assoc()){
+            echo'
+            <div class="p-4 bg gray-600 my-1 cursor-pointer hover:bg-gray-500 transition">
+                <div class="text-2x1"><b>Judul : </b> '.$row['judul'] .'</div>
+            </div>
+            ';
+        }
+    }
+
+    
